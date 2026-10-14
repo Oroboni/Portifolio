@@ -1,0 +1,44 @@
+name: Publicar portfólio no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v6
+      - name: Preparar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Validar JavaScript
+        run: node --check assets/app.js
+      - name: Preparar arquivos públicos
+        run: |
+          mkdir -p dist/assets
+          cp index.html dist/index.html
+          cp .nojekyll dist/.nojekyll
+          cp assets/style.css assets/app.js assets/favicon.svg dist/assets/
+      - name: Enviar site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4

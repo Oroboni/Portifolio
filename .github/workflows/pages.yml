@@ -31,10 +31,11 @@ jobs:
         run: node --check assets/app.js
       - name: Preparar arquivos públicos
         run: |
-          mkdir -p dist/assets
+          mkdir -p dist/assets dist/docs
           cp index.html dist/index.html
           cp .nojekyll dist/.nojekyll
-          cp assets/style.css assets/app.js assets/favicon.svg dist/assets/
+          cp -R assets/. dist/assets/
+          cp -R docs/. dist/docs/
       - name: Enviar site
         uses: actions/upload-pages-artifact@v4
         with:

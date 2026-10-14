@@ -36,7 +36,10 @@ Os caminhos de assets são relativos, compatíveis tanto com `usuario.github.io/
 - Estudos do Instituto Empodera, Dracotheca, Monitoramento IoT e DevOps_Grupo.
 - Links para evidências públicas; o Empodera usa a branch **Online** para o workflow e as dependências.
 - Laboratório didático com três incidentes: ALB 503, contrato de nomes de tabela e release não ativada.
+- Uso de IA e OmniRoute, com quatro imagens oficiais, galeria interativa e ampliação.
 - Método de trabalho com IA, revisão e critérios de aceite.
+- Procedimento de sustentação para download, com diagnóstico, testes, publicação e rollback.
+- Estudo IoT com reprodução isolada executada, duas entradas e asserts de divergência.
 - Contato pelo GitHub.
 
 ## Editar
@@ -44,6 +47,10 @@ Os caminhos de assets são relativos, compatíveis tanto com `usuario.github.io/
 - `index.html`: apresentação, descrições principais, tecnologias e contato.
 - `assets/app.js`: estudos e cenários do laboratório.
 - `assets/style.css`: visual e comportamento responsivo.
+- `assets/omniroute/`: imagens oficiais do gateway.
+- `docs/procedimento-sustentacao.md`: exemplo de procedimento de trabalho.
+- `docs/estudo-regras-iot.md` e `docs/reproduzir-regras-iot.cjs`: estudo e reprodução executável.
+- `docs/creditos-imagens.md` e `docs/LICENSE-OMNIROUTE.txt`: fonte e licença das imagens.
 
 Os projetos colaborativos são identificados como tal. Os achados estáticos, o laboratório e os resultados simulados são explicitamente delimitados. Não há alegações de experiência profissional não verificada, métricas inventadas, comprovação de pipelines aprovados ou certificações.
 
@@ -62,3 +69,16 @@ Consulta ao GitHub em 14/10/2026:
 - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-troubleshooting.html
 
 O cenário de banco é inspirado em um diagnóstico anterior do Empodera; não representa uma auditoria do ambiente atual. O cenário de ALB é um exemplo didático.
+
+## OmniRoute e evidências
+
+A seção de IA apresenta o uso do OmniRoute declarado por Matheus. Os recursos do produto foram verificados na documentação oficial. As imagens são exemplos públicos do projeto, copiados sem edição e com atribuição; não mostram as contas ou métricas de Matheus. Não foi realizado um teste de inferência contra sua instalação durante esta atualização.
+
+A reprodução IoT confirma apenas a divergência entre duas funções de classificação. Ela não inicia o servidor nem o banco, não decide qual regra é canônica e não altera o repositório original.
+
+Fontes das imagens e funcionalidades:
+
+- https://github.com/diegosouzapw/OmniRoute
+- https://github.com/diegosouzapw/OmniRoute/blob/release/v3.8.52/docs/guides/FEATURES.md
+
+O workflow publica recursivamente `assets/` e `docs/`, incluindo as imagens, o procedimento, o estudo e a licença.
